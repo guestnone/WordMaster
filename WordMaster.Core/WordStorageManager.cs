@@ -18,9 +18,11 @@ namespace WordMaster.Core
             return mInstance;
         }
 
-        public WordStoreMemento GetStorageState()
+        public WordStoreMemento GetStorageState(bool shalowCopy)
         {
-            return new WordStoreMemento(mWordStore);
+            if (shalowCopy)
+                return new WordStoreMemento(mWordStore);
+            return new WordStoreMemento(mWordStore.Copy());
         }
 
         public void OverwriteStorageState(WordStoreMemento memento)
@@ -28,22 +30,15 @@ namespace WordMaster.Core
             mWordStore = memento.GetData();
         }
 
-        //bool AddWordSet(WordSet wordSet, string collection)
-        //{
-        //
-        //}
-        
-        WordCollection AddWordCollection(string name, Language defaultLanguage)
-        {
-            if (!mWordStore.mWordCollections.ContainsKey(name))
-            {
-                var collection = new WordCollection(name, defaultLanguage);
-                mWordStore.mWordCollections.Add(collection.mName, collection);
-                return collection;
-            }
-            Log.Warning("Collection {0} already exists, return existing one.", name);
-            return mWordStore.mWordCollections[name];
 
+        void AddWordCollection(WordCollection newCollection)
+        {
+            if (!mWordStore.mWordCollections.ContainsKey(newCollection.mName))
+            {
+                mWordStore.mWordCollections.Add(newCollection.mName, newCollection);
+                return;
+            }
+            Log.Warning("Collection {0} already exists.", newCollection.mName);
         }
 
         bool UpdateWordCollection(WordCollection collection)

@@ -199,12 +199,18 @@ namespace WordMaster.Core
     public class WordSet
     {
         public Language mLanguage;
-        public Dictionary<string, string> mWords;
+        public IDictionary<string, string> mWords;
 
         public WordSet(Language language)
         {
             mLanguage = language;
             mWords = new Dictionary<string, string>();
+        }
+
+        public WordSet(Language language, IDictionary<string, string> selectedDictionary)
+        {
+            mLanguage = language;
+            mWords = selectedDictionary;
         }
     }
 
@@ -212,7 +218,7 @@ namespace WordMaster.Core
     {
         public string mName;
         public Language mDefaultLanguage;
-        public Dictionary<Language, WordSet> mWordSets;
+        public IDictionary<Language, WordSet> mWordSets;
 
         public WordCollection(string name, Language defaultLanguage)
         {
@@ -220,15 +226,27 @@ namespace WordMaster.Core
             mDefaultLanguage = defaultLanguage;
             mWordSets = new Dictionary<Language, WordSet>();
         }
+
+        public WordCollection(string name, Language defaultLanguage, IDictionary<Language, WordSet> selectedDictionary)
+        {
+            mName = name;
+            mDefaultLanguage = defaultLanguage;
+            mWordSets = selectedDictionary;
+        }
     }
 
     public class WordStore
     {
-        public Dictionary<string, WordCollection> mWordCollections;
+        public IDictionary<string, WordCollection> mWordCollections;
 
         public WordStore()
         {
             mWordCollections = new Dictionary<string, WordCollection>();
+        }
+
+        public WordStore(IDictionary<string, WordCollection> selectedDictionary )
+        {
+            mWordCollections = selectedDictionary;
         }
     }
 }
