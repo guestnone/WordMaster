@@ -28,7 +28,7 @@ namespace WordMaster.Core
             throw new NotImplementedException();
         }
 
-        public void SetCorectAnswer(IList<int> answerList)
+        public void SetCorrectAnswer(IList<int> answerList)
         {
 
         }

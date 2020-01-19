@@ -26,7 +26,9 @@ namespace WordMaster.Core
         }
 
     }
-
+    /// <summary>
+    /// Factory creating collection from default dictionary
+    /// </summary>
     public class DefaultWordCollectionFactory : WordCollectionFactory
     {
         public override IDictionary<Language, WordSet> FactoryStructure()
@@ -34,7 +36,9 @@ namespace WordMaster.Core
             return new Dictionary<Language, WordSet>();
         }
     }
-
+    /// <summary>
+    /// Factory creating collection from sorted dictionary
+    /// </summary>
     public class SortedWordCollectionFactory : WordCollectionFactory
     {
         public override IDictionary<Language, WordSet> FactoryStructure()
@@ -80,7 +84,9 @@ namespace WordMaster.Core
         }
 
     }
-
+    /// <summary>
+    /// Factory creating set from default dictionary
+    /// </summary>
     public class DefaultWordSetFactory : WordSetFactory
     {
         public override IDictionary<string, string> FactoryStructure()
@@ -88,12 +94,14 @@ namespace WordMaster.Core
             return new Dictionary<string, string>();
         }
     }
-
+    /// <summary>
+    /// Factory creating set from sorted dictionary
+    /// </summary>
     public class SortedWordSetFactory : WordSetFactory
     {
         public override IDictionary<string, string> FactoryStructure()
         {
-            return new SortedDictionary<string, string>();;
+            return new SortedDictionary<string, string>();
         }
     }
 }
