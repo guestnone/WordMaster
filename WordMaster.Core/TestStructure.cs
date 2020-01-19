@@ -2,7 +2,7 @@
 
 namespace WordMaster.Core
 {
-    internal class TestStructure
+    public class TestStructure
     {
         public List<int> WordCountPerTask { get { return mWordCountPerTask; } set { mWordCountPerTask = value; } }
         public List<int> PointsNumberPerTask { get { return mPointsNumberPerTask; } set { mPointsNumberPerTask = value; } }
@@ -12,4 +12,9 @@ namespace WordMaster.Core
         private List<int> mPointsNumberPerTask;
         private List<int> mDifficultyPerTask;
     }
+
+    public class TestSaveStructure
+    {
+
+    };
 }
