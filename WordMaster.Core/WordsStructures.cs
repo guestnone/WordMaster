@@ -200,6 +200,12 @@ namespace WordMaster.Core
     {
         public Language mLanguage;
         public Dictionary<string, string> mWords;
+
+        public WordSet(Language language)
+        {
+            mLanguage = language;
+            mWords = new Dictionary<string, string>();
+        }
     }
 
     public class WordCollection
@@ -207,10 +213,22 @@ namespace WordMaster.Core
         public string mName;
         public Language mDefaultLanguage;
         public Dictionary<Language, WordSet> mWordSets;
+
+        public WordCollection(string name, Language defaultLanguage)
+        {
+            mName = name;
+            mDefaultLanguage = defaultLanguage;
+            mWordSets = new Dictionary<Language, WordSet>();
+        }
     }
 
     public class WordStore
     {
         public Dictionary<string, WordCollection> mWordCollections;
+
+        public WordStore()
+        {
+            mWordCollections = new Dictionary<string, WordCollection>();
+        }
     }
 }
