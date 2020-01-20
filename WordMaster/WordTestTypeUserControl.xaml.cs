@@ -18,9 +18,15 @@ namespace WordMaster
     /// </summary>
     public partial class WordTestTypeUserControl : UserControl
     {
-        public WordTestTypeUserControl()
+        public WordTestTypeUserControl(string originalText)
         {
             InitializeComponent();
+            origValue.Content = originalText;
+        }
+
+        public string GetTypedValue()
+        {
+            return textBox.Text;
         }
     }
 }

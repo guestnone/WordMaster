@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="WordStorageEditWindow" Height="450" Width="800">
     <Grid>
-        
+        <ListBox x:Name="listBox" Margin="10,41,597,10"/>
+        <Label x:Name="label" Content="Collections" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Language" HorizontalAlignment="Left" Margin="208,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="208,41,0,0" VerticalAlignment="Top" Width="280"/>
+        <ListBox x:Name="listBox1" Margin="208,99,312,10"/>
+        <Label x:Name="label2" Content="Items" HorizontalAlignment="Left" Margin="208,68,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
