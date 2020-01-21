@@ -196,10 +196,20 @@ namespace WordMaster.Core
         Count // Number of entries
     };
 
+    /// <summary>
+    /// Stores the list of per-language words.
+    /// </summary>
     public class WordSet
     {
+        /// <summary>
+        /// Language of a word set.
+        /// </summary>
         public Language mLanguage;
+        /// <summary>
+        /// Key-value pair of words, identified by it's default languages identifier.
+        /// </summary>
         public IDictionary<string, string> mWords;
+
 
         public WordSet(Language language)
         {
@@ -214,6 +224,9 @@ namespace WordMaster.Core
         }
     }
 
+    /// <summary>
+    /// Contains the collection (thematical) of words that will be used in a test.
+    /// </summary>
     public class WordCollection
     {
         public string mName;
@@ -235,6 +248,9 @@ namespace WordMaster.Core
         }
     }
 
+    /// <summary>
+    /// Stores all word collections.
+    /// </summary>
     public class WordStore
     {
         public IDictionary<string, WordCollection> mWordCollections;

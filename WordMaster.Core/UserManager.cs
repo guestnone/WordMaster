@@ -4,9 +4,15 @@ using System.Text;
 
 namespace WordMaster.Core
 {
+    /// <summary>
+    /// Singleton manager responsible for managing user state.
+    /// </summary>
     public sealed class UserManager
     {
 
+        /// <summary>
+        /// Returns the instance of a manager. Creates on first call.
+        /// </summary>
         public static UserManager GetInstance()
         {
             if (mInstance == null)
@@ -17,6 +23,10 @@ namespace WordMaster.Core
             return mInstance;
         }
 
+        /// <summary>
+        /// Get the user statt saves as a memento
+        /// </summary>
+        /// <param name="shalowCopy">True if copy should be linked to the original.</param>
         public UserStateMemento GetUserState(bool shalowCopy)
         {
             if (shalowCopy)
@@ -24,6 +34,9 @@ namespace WordMaster.Core
             return new UserStateMemento(mUserState.Copy());
         }
 
+        /// <summary>
+        /// Replaces the user state with the one stores in a given memento.
+        /// </summary>
         public void OverwriteUserState(UserStateMemento memento)
         {
             mUserState = memento.GetData();
