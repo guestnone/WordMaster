@@ -1,0 +1,17 @@
+﻿<Window x:Class="WordMaster.AddCollectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WordMaster"
+        mc:Ignorable="d"
+        Title="Add Collection" Height="209" Width="479" ResizeMode="NoResize">
+    <Grid>
+        <ComboBox x:Name="defaultLanguageComboBox" HorizontalAlignment="Left" Margin="183,52,0,0" VerticalAlignment="Top" Width="230" FontSize="14"/>
+        <Label x:Name="defaultLangLabel" Content="Base Language" HorizontalAlignment="Left" Margin="22,50,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label x:Name="projectNameLabel" Content="Name" HorizontalAlignment="Left" Margin="22,13,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="projectNameTextBox" HorizontalAlignment="Left" Margin="183,17,0,0" Text="Example Collection" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" FontSize="14"/>
+        <Button x:Name="okButton" Content="OK" HorizontalAlignment="Left" Margin="337,121,0,0" VerticalAlignment="Top" Width="76" Click="okButton_Click"/>
+        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="222,121,0,0" VerticalAlignment="Top" Width="76" Click="cancelButton_Click"/>
+    </Grid>
+</Window>

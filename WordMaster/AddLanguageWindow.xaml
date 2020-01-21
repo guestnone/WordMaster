@@ -1,0 +1,16 @@
+﻿<Window x:Class="WordMaster.AddLanguageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WordMaster"
+        mc:Ignorable="d"
+        Title="AddLanguageWindow" Height="203" Width="471"  ResizeMode="NoResize">
+    <Grid>
+        <ComboBox x:Name="languageComboBox" HorizontalAlignment="Left" Margin="183,48,0,0" VerticalAlignment="Top" Width="230" FontSize="14"/>
+        <Label x:Name="langLabel" Content="Language" HorizontalAlignment="Left" Margin="22,46,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="okButton" Content="OK" HorizontalAlignment="Left" Margin="337,122,0,0" VerticalAlignment="Top" Width="76" Click="okButton_Click"/>
+        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="222,121,0,0" VerticalAlignment="Top" Width="76" Click="cancelButton_Click"/>
+
+    </Grid>
+</Window>

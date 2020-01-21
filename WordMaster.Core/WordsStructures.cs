@@ -222,6 +222,8 @@ namespace WordMaster.Core
             mLanguage = language;
             mWords = selectedDictionary;
         }
+
+        public WordSet() { }
     }
 
     /// <summary>
@@ -246,6 +248,8 @@ namespace WordMaster.Core
             mDefaultLanguage = defaultLanguage;
             mWordSets = selectedDictionary;
         }
+
+        public WordCollection() { }
     }
 
     /// <summary>
