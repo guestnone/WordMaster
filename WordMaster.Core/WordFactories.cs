@@ -13,7 +13,7 @@ namespace WordMaster.Core
     /// </summary>
     public abstract class WordCollectionFactory
     {
-        WordCollection create(string name, Language defaultLanguage)
+        public WordCollection create(string name, Language defaultLanguage)
         {
             var setStructure = FactoryStructure();
             if (setStructure == null)
@@ -51,7 +51,7 @@ namespace WordMaster.Core
 
     public abstract class WordSetFactory
     {
-        WordSet Create(Language language)
+        public WordSet Create(Language language)
         {
             var setStructure = FactoryStructure();
             if (setStructure == null)
@@ -62,7 +62,7 @@ namespace WordMaster.Core
             return new WordSet(language, FactoryStructure());
         }
 
-        WordSet CreateFromCopy(Language language, WordSet input)
+        public WordSet CreateFromCopy(Language language, WordSet input)
         {
             return CreateCopy(input, language);
         }

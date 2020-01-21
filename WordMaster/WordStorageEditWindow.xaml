@@ -7,19 +7,45 @@
         mc:Ignorable="d"
         Title="Edit Words" Height="502" Width="851" ResizeMode="NoResize">
     <Grid>
-        <ListBox x:Name="listBox" Margin="10,41,659,62" SelectionChanged="listBox_SelectionChanged"/>
+        <ListBox x:Name="collectionListBox" Margin="10,41,659,62" SelectionChanged="listBox_SelectionChanged" ItemsSource="{DynamicResource Collections}" Grid.IsSharedSizeScope="True" SelectionMode="Single">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="Name" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="2" Text="{Binding Key}" Grid.Column="0"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Label x:Name="label" Content="Collections" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Language" HorizontalAlignment="Left" Margin="208,7,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="208,36,0,0" VerticalAlignment="Top" Width="271"/>
-        <ListBox x:Name="listBox1" Margin="208,99,372,62"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="208,36,0,0" VerticalAlignment="Top" Width="271" SelectionChanged="ComboBox_OnSelectionChanged" />
+        <ListBox x:Name="wordsListBox" Margin="208,99,372,62" ItemsSource="{DynamicResource Words}" SelectionMode="Single" SelectionChanged="wordsListBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="Original" />
+                            <ColumnDefinition SharedSizeGroup="Word" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="2" Text="{Binding Key}" Grid.Column="0"/>
+                        <TextBlock Margin="2" Text="{Binding Value}" Grid.Column="1"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Label x:Name="label2" Content="Words" HorizontalAlignment="Left" Margin="208,68,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label3" Content="Original value (if available)" HorizontalAlignment="Left" Margin="494,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.527,0.348"/>
         <Label x:Name="label4" Content="Input/Translation" HorizontalAlignment="Left" Margin="494,120,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="addCollectionButton" Content="Add Collection" HorizontalAlignment="Left" Margin="10,429,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.631,0.303"/>
-        <Button x:Name="addWordButton" Content="Add Word" HorizontalAlignment="Left" Margin="208,429,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.656,-0.198"/>
+        <Button x:Name="addCollectionButton" Content="Add Collection" HorizontalAlignment="Left" Margin="10,429,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.631,0.303" Click="addCollectionButton_Click"/>
+        <Button x:Name="addWordButton" Content="Add Word" HorizontalAlignment="Left" Margin="208,429,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.656,-0.198" Click="addWordButton_Click"/>
         <TextBox x:Name="textBlock" HorizontalAlignment="Left" Margin="493,148,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Height="100" FontSize="20" AcceptsReturn="True" VerticalContentAlignment="Top" />
-        <Label x:Name="valueLabel" Content="Content Here" HorizontalAlignment="Left" Margin="494,34,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="updateButton" Content="Update" HorizontalAlignment="Left" Margin="493,253,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="addLangbutton" Content="Add Language" HorizontalAlignment="Left" Margin="271,429,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="valueLabel" Content="Unknown" HorizontalAlignment="Left" Margin="494,34,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="updateButton" Content="Update" HorizontalAlignment="Left" Margin="493,253,0,0" VerticalAlignment="Top" Click="updateButton_Click"/>
+        <Button x:Name="addLangbutton" Content="Add Language" HorizontalAlignment="Left" Margin="271,429,0,0" VerticalAlignment="Top" Click="addLangbutton_Click"/>
+        <Label Content="Default Language:" HorizontalAlignment="Left" Margin="494,291,0,0" VerticalAlignment="Top"/>
+        <Label  x:Name="langLabel" Content="Unknown" HorizontalAlignment="Left" Margin="622,291,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

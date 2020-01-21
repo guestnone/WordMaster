@@ -89,6 +89,7 @@ namespace WordMaster
         {
             var editWindow = new WordStorageEditWindow(WordStorageManager.GetInstance().GetStorageState(false).GetData());
             editWindow.ShowDialog();
+            WordStorageManager.GetInstance().OverwriteStorageState(new WordStoreMemento(editWindow.EditedStore));
 
         }
 
@@ -100,8 +101,7 @@ namespace WordMaster
                 MessageBox.Show("You don't have any added word collections.\nPlease add some.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            
-            
+
 
         }
     }
