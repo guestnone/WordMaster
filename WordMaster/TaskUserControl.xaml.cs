@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WordMaster.Core;
 
 namespace WordMaster
 {
@@ -18,10 +19,11 @@ namespace WordMaster
     /// </summary>
     public partial class TaskUserControl : UserControl
     {
-        public TaskUserControl()
+        public TaskUserControl(Task task)
         {
             InitializeComponent();
-            
+            DataContext = task;
+            taskTextBlock.Text = "Original word: " + task.SearchedWord.Display;
         }
     }
 

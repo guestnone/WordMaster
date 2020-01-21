@@ -13,8 +13,9 @@ namespace WordMaster.Core
         public Answer[] Answers { get; set; }
         public int Points { get; set; }
         public int Difficulty { get; set; }
-        public string RightAnswer { get; set; }
-        public string SearchedWord { get; set; }
+        public Answer RightAnswer { get; set; }
+        public Answer SearchedWord { get; set; }
+        public Answer SelectedAnswer { get; set; }
 
         public Task(string[] possibleWords, int taskPoints, string rightAnswer, int difficulty, string searched)
         {
@@ -24,8 +25,8 @@ namespace WordMaster.Core
             }
             Points = taskPoints;
             Difficulty = difficulty;
-            RightAnswer = rightAnswer;
-            SearchedWord = searched;
+            RightAnswer.Display = rightAnswer;
+            SearchedWord.Display = searched;
         }
     }
     public class Test
