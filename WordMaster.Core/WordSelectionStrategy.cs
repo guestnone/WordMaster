@@ -18,11 +18,17 @@ namespace WordMaster.Core
     {
         public string SelectWord(WordSet wordSet)
         {
-            foreach (string s in wordSet.mWords.Keys) {
-                if (s.Length < 6)
-                    return s;
-            }
-            return null;
+            ICollection<string> values = wordSet.mWords.Values;
+            List<string> valList = new List<string>(values);
+
+            Random rand = new Random();
+            string randomKey;
+
+            do {
+                randomKey = valList[rand.Next(valList.Count)];
+            }while (randomKey.Length >= 6) ;
+
+            return randomKey;
 
         }
     }
@@ -33,12 +39,18 @@ namespace WordMaster.Core
     {
         public string SelectWord(WordSet wordSet)
         {
-            foreach (string s in wordSet.mWords.Keys)
+            ICollection<string> values = wordSet.mWords.Values;
+            List<string> valList = new List<string>(values);
+
+            Random rand = new Random();
+            string randomKey;
+
+            do
             {
-                if (s.Length >= 6)
-                    return s;
-            }
-            return null;
+                randomKey = valList[rand.Next(valList.Count)];
+            } while (randomKey.Length < 6);
+
+            return randomKey;
 
         }
     }

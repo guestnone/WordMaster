@@ -12,7 +12,6 @@ namespace WordMaster.Core
 
         }
 
-
         public void OnChange()
         {
             throw new NotImplementedException();

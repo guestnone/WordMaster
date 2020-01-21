@@ -8,8 +8,10 @@ using System.Xml;
 
 namespace WordMaster.Core
 {
-
-    public class WordCollectionFactory
+    /// <summary>
+    /// Abstract Factory creating word collection that stores languages
+    /// </summary>
+    public abstract class WordCollectionFactory
     {
         WordCollection create(string name, Language defaultLanguage)
         {
@@ -47,7 +49,7 @@ namespace WordMaster.Core
         }
     }
 
-    public class WordSetFactory
+    public abstract class WordSetFactory
     {
         WordSet Create(Language language)
         {
