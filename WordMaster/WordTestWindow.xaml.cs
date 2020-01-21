@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WordMaster.Core;
 
 namespace WordMaster
 {
@@ -24,11 +25,6 @@ namespace WordMaster
         public WordTestWindow()
         {
             InitializeComponent();
-        }
-
-        private void cancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }
