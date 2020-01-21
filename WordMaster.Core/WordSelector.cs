@@ -4,6 +4,9 @@ using System.Text;
 
 namespace WordMaster.Core
 {
+    /// <summary>
+    /// Class that chooses test word based on taken strategy.
+    /// </summary>
     class WordSelector
     {
         public WordSelector(IWordSelectionStrategy strategy, WordSet wordSet)

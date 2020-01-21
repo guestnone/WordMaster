@@ -8,8 +8,10 @@ using System.Xml;
 
 namespace WordMaster.Core
 {
-
-    public class WordCollectionFactory
+    /// <summary>
+    /// Abstract Factory creating word collection that stores languages
+    /// </summary>
+    public abstract class WordCollectionFactory
     {
         WordCollection create(string name, Language defaultLanguage)
         {
@@ -26,7 +28,9 @@ namespace WordMaster.Core
         }
 
     }
-
+    /// <summary>
+    /// Factory creating collection from default dictionary
+    /// </summary>
     public class DefaultWordCollectionFactory : WordCollectionFactory
     {
         public override IDictionary<Language, WordSet> FactoryStructure()
@@ -34,7 +38,9 @@ namespace WordMaster.Core
             return new Dictionary<Language, WordSet>();
         }
     }
-
+    /// <summary>
+    /// Factory creating collection from sorted dictionary
+    /// </summary>
     public class SortedWordCollectionFactory : WordCollectionFactory
     {
         public override IDictionary<Language, WordSet> FactoryStructure()
@@ -43,7 +49,7 @@ namespace WordMaster.Core
         }
     }
 
-    public class WordSetFactory
+    public abstract class WordSetFactory
     {
         WordSet Create(Language language)
         {
@@ -80,7 +86,9 @@ namespace WordMaster.Core
         }
 
     }
-
+    /// <summary>
+    /// Factory creating set from default dictionary
+    /// </summary>
     public class DefaultWordSetFactory : WordSetFactory
     {
         public override IDictionary<string, string> FactoryStructure()
@@ -88,12 +96,14 @@ namespace WordMaster.Core
             return new Dictionary<string, string>();
         }
     }
-
+    /// <summary>
+    /// Factory creating set from sorted dictionary
+    /// </summary>
     public class SortedWordSetFactory : WordSetFactory
     {
         public override IDictionary<string, string> FactoryStructure()
         {
-            return new SortedDictionary<string, string>();;
+            return new SortedDictionary<string, string>();
         }
     }
 }
