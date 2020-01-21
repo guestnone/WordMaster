@@ -21,5 +21,10 @@ namespace WordMaster
         {
             InitializeComponent();
         }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -7,6 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Label x:Name="origLabel" Content="Original Word" HorizontalAlignment="Center" Margin="0,52,0,0" VerticalAlignment="Top" FontSize="30"/>
+        <Rectangle HorizontalAlignment="Center" Height="100" Margin="0,125,0,0" Stroke="Black" VerticalAlignment="Top" Width="780"/>
+        <Label x:Name="origValue" Content="Original" HorizontalAlignment="Center" Margin="0,125,0,0" VerticalAlignment="Top" FontSize="60" Width="780" Height="100"/>
+        <Label x:Name="typeLabel" Content="Your translation" HorizontalAlignment="Center" Margin="0,234,0,0" VerticalAlignment="Top" FontSize="30"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Center" Margin="0,298,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="780" Height="90" FontSize="50"/>
+
     </Grid>
 </UserControl>
