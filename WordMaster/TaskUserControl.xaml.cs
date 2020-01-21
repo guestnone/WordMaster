@@ -8,27 +8,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WordMaster.Core;
 
 namespace WordMaster
 {
-
-
     /// <summary>
-    /// Interaction logic for WordTestWindow.xaml
+    /// Interaction logic for TaskUserControl.xaml
     /// </summary>
-    public partial class WordTestWindow : Window
+    public partial class TaskUserControl : UserControl
     {
-        public WordTestWindow()
+        public TaskUserControl()
         {
             InitializeComponent();
-        }
-        public WordTestWindow(Test test) { 
-            
-        }
-
-        private TaskUserControl buildTask() { 
             
         }
     }

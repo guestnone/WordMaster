@@ -21,6 +21,7 @@ namespace WordMaster.Core
             Points = new List<int>();
             RightAnswers = new List<string>();
             Difficulty = new List<int>();
+            SearchedWords = new List<string>();
         }
         public void addTask(string[] possibleWords, int taskPoints, string rightAnswer, int difficulty, string searched)
         {
