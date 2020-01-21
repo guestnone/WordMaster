@@ -14,10 +14,11 @@ namespace WordMaster.Core
         public UserState mUserState;
     }
 
-    static class SaveLoadManager
+    public static class SaveLoadManager
     {
         public static bool SaveToDisk(NPath path, UserStateMemento userMemento, WordStoreMemento wordMemento)
         {
+            path.CreateFile();
             var temporaryData = new TemporaryData
             {
                 mWordStore = wordMemento.GetData(), mUserState = userMemento.GetData()

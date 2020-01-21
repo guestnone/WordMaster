@@ -4,10 +4,10 @@ using System.Text;
 
 namespace WordMaster.Core
 {
-    class UserManager
+    public sealed class UserManager
     {
 
-        private static UserManager GetInstance()
+        public static UserManager GetInstance()
         {
             if (mInstance == null)
             {
@@ -57,7 +57,14 @@ namespace WordMaster.Core
 
         private UserManager()
         {
-            mUserState = new UserState();
+            mUserState = new UserState
+            {
+                mFirstName = "Unknown",
+                mLastName = "User",
+                mProficiencyType = ProficiencyType.Basic,
+                mGoodAnswerCount = 0,
+                mWrongAnswerCount = 0
+            };
         }
 
         private UserState mUserState;

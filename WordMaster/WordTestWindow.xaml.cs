@@ -19,9 +19,16 @@ namespace WordMaster
     /// </summary>
     public partial class WordTestWindow : Window
     {
+        public bool IsFinished = false;
+
         public WordTestWindow()
         {
             InitializeComponent();
+        }
+
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

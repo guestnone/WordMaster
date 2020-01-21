@@ -14,12 +14,10 @@ namespace WordMaster
     /// </summary>
     public partial class App : Application
     {
-        private ILogger logger;
+        
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            logger = new LoggerConfiguration().WriteTo.Console().WriteTo.File("WordMaster.log").CreateLogger();
         }
     }
 }

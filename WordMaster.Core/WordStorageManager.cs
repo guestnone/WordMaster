@@ -5,7 +5,7 @@ using Serilog;
 
 namespace WordMaster.Core
 {
-    class WordStorageManager
+    public class WordStorageManager
     {
 
         public static WordStorageManager GetInstance()

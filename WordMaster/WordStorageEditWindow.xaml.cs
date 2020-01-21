@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WordMaster.Core;
 
 namespace WordMaster
 {
@@ -17,9 +18,12 @@ namespace WordMaster
     /// </summary>
     public partial class WordStorageEditWindow : Window
     {
-        public WordStorageEditWindow()
+        public WordStore EditedStore;
+
+        public WordStorageEditWindow(WordStore store)
         {
             InitializeComponent();
+            EditedStore = store;
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
