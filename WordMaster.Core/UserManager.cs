@@ -56,15 +56,18 @@ namespace WordMaster.Core
             mUserState.mLastName = lastName;
         }
 
+        /// <summary>
+        /// Modifies the good and bad answer statistics by addying the given values
+        /// </summary>
         public void ModifyAnswerStatistics(int wrongCount, int goodCount)
         {
             if (wrongCount != -1)
             {
-                mUserState.mWrongAnswerCount = wrongCount;
+                mUserState.mWrongAnswerCount += wrongCount;
             }
             if (goodCount != -1)
             {
-                mUserState.mGoodAnswerCount = goodCount;
+                mUserState.mGoodAnswerCount += goodCount;
             }
         }
 

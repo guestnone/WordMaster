@@ -104,6 +104,7 @@ namespace WordMaster
 
             TestSelectCollectionWindow selectCollectionWindow = new TestSelectCollectionWindow(wordStoreMemento.GetData());
             selectCollectionWindow.ShowDialog();
+            UpdateStats();
         }
     }
 }

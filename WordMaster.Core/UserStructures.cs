@@ -1,8 +1,9 @@
 ﻿
 namespace WordMaster.Core
 {
+
     /// <summary>
-    /// Profficiency levels
+    /// Type of a proficiency of a user.
     /// </summary>
     public enum ProficiencyType
     {
@@ -12,8 +13,9 @@ namespace WordMaster.Core
         UpperIntermediate,
         Advanced
     }
+
     /// <summary>
-    /// Structure used to store user's information
+    /// Contains the state of a user.
     /// </summary>
     public class UserState
     {

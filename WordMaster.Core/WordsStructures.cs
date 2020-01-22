@@ -210,13 +210,18 @@ namespace WordMaster.Core
         /// </summary>
         public IDictionary<string, string> mWords;
 
-
+        /// <summary>
+        /// Initializes the set using a given language
+        /// </summary>
         public WordSet(Language language)
         {
             mLanguage = language;
             mWords = new Dictionary<string, string>();
         }
 
+        /// <summary>
+        /// Initializes the set using a given language and created specific dictionay object
+        /// </summary>
         public WordSet(Language language, IDictionary<string, string> selectedDictionary)
         {
             mLanguage = language;
