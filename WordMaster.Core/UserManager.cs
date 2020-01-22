@@ -60,11 +60,11 @@ namespace WordMaster.Core
         {
             if (wrongCount != -1)
             {
-                mUserState.mWrongAnswerCount = wrongCount;
+                mUserState.mWrongAnswerCount += wrongCount;
             }
             if (goodCount != -1)
             {
-                mUserState.mGoodAnswerCount = goodCount;
+                mUserState.mGoodAnswerCount += goodCount;
             }
         }
 

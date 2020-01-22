@@ -23,6 +23,7 @@ namespace WordMaster
         private int currTaskControl = 0;
         private Test mTest;
         public bool IsFinished = false;
+        public int NumQuestions = 0;
 
         public UserControl[] taskControls;
 

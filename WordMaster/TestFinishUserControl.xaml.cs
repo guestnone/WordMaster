@@ -21,6 +21,8 @@ namespace WordMaster
     {
         private int pointsSum;
         private int pointsOverall;
+        private int goodAnswers = 0;
+        private int badAnswers = 0;
         public TestFinishUserControl(Test test)
         {
             InitializeComponent();
@@ -33,7 +35,10 @@ namespace WordMaster
                     if (task.SelectedAnswer.Display == task.RightAnswer.Display)
                     {
                         pointsSum += task.Points;
+                        goodAnswers += 1;
                     }
+                    else
+                        badAnswers += 1;
                 }
                 
             }
@@ -42,6 +47,7 @@ namespace WordMaster
 
         private void end_Click(object sender, RoutedEventArgs e)
         {
+            UserManager.GetInstance().ModifyAnswerStatistics(badAnswers, goodAnswers);
             Window.GetWindow(this).Close();
         }
     }
