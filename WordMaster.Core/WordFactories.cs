@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
@@ -77,9 +78,9 @@ namespace WordMaster.Core
             var output = new WordSet(newLanguage);
             output.mWords = inputWordSet.mWords.Copy();
             output.mLanguage = newLanguage;
-            foreach (var word in output.mWords)
+            foreach (var word in output.mWords.Keys.ToList())
             {
-                output.mWords[word.Key] = "";
+                output.mWords[word] = "";
             }
 
             return output;
