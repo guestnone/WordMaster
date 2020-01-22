@@ -21,7 +21,7 @@ namespace WordMaster
         public KeyValuePair<Language, WordSet> SelectedSet;
         public string SelectedCollectionName;
         public bool IsSelected = false;
-        public bool DefaultLangAsFromLanguage = false;
+        public bool IsLearningMode = false;
         private WordStore store;
         
         public TestSelectCollectionWindow(WordStore wordStore)
@@ -66,12 +66,12 @@ namespace WordMaster
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
             IsSelected = true;
-            DefaultLangAsFromLanguage = (checkBox.IsChecked == true);
-            CustomTestAdapter testAdapter = new CustomTestAdapter();
+            IsLearningMode = (checkBox.IsChecked == true);
+            ITestAdapter testAdapter = new DescribedTestAdapter();
 
             TestGenerator testGenerator = new TestGenerator(testAdapter, SelectedSet.Value);
             Test test = testGenerator.GenerateTest();
-            WordTestWindow wordTestWindow = new WordTestWindow(test);
+            WordTestWindow wordTestWindow = new WordTestWindow(test, IsLearningMode);
             wordTestWindow.ShowDialog();
             this.Close();
         }

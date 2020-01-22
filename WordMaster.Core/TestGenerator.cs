@@ -4,6 +4,9 @@ using System.Text;
 
 namespace WordMaster.Core
 {
+    /// <summary>
+    /// Class that creates Test that is passed by user
+    /// </summary>
     public class TestGenerator
     {
         public TestGenerator(ITestAdapter model, WordSet wordSet)
@@ -12,8 +15,15 @@ namespace WordMaster.Core
             mWordSet = wordSet;
             mSelector = new WordSelector(new EasyModeWordSelectionStrategy(), wordSet);
         }
+        /// <summary>
+        /// Setting test model which determines test structure
+        /// </summary>
+        /// <param name="model">Test Adapter</param>
         public void SetTestModel(ITestAdapter model) { mTestModel = model; }
-
+        /// <summary>
+        /// Method that returns generated test based on test model and strategies used individually in each task.
+        /// </summary>
+        /// <returns>Test</returns>
         public Test GenerateTest() {
             if (mTestModel == null)
                 return null;

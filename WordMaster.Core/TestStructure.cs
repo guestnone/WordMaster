@@ -7,8 +7,17 @@ namespace WordMaster.Core
     /// </summary>
     public class TestStructure
     {
+        /// <summary>
+        /// Number of words in per task index.
+        /// </summary>
         public int[] WordCountPerTask { get { return mWordCountPerTask; } set { mWordCountPerTask = value; } }
+        /// <summary>
+        /// Points per task index.
+        /// </summary>
         public int[] PointsNumberPerTask { get { return mPointsNumberPerTask; } set { mPointsNumberPerTask = value; } }
+        /// <summary>
+        /// Difficulty per task index.
+        /// </summary>
         public int[] DifficultyPerTask { get { return mDifficultyPerTask; } set { mDifficultyPerTask = value; } }
 
         private int[] mWordCountPerTask;

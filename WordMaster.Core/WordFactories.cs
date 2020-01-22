@@ -51,6 +51,11 @@ namespace WordMaster.Core
 
     public abstract class WordSetFactory
     {
+        /// <summary>
+        /// Method responsible for creating a new dictionary for given language
+        /// </summary>
+        /// <param name="language">Language which dictionary is created for</param>
+        /// <returns>New Dictionary of words</returns>
         public WordSet Create(Language language)
         {
             var setStructure = FactoryStructure();
@@ -61,17 +66,30 @@ namespace WordMaster.Core
                 
             return new WordSet(language, FactoryStructure());
         }
-
+        /// <summary>
+        /// Method that copies existing dictionary into a new one with different language.
+        /// </summary>
+        /// <param name="language">Language which dictionary is created for</param>
+        /// <param name="input">Copied WordSet</param>
+        /// <returns>New Dictionary of words</returns>
         public WordSet CreateFromCopy(Language language, WordSet input)
         {
             return CreateCopy(input, language);
         }
-
+        /// <summary>
+        /// Fabric method that is used to make it possible to change the structure of dictionary easily.
+        /// </summary>
+        /// <returns>New Dictionary of words</returns>
         public virtual IDictionary<string, string> FactoryStructure()
         {
             return null;
         }
-
+        /// <summary>
+        /// Method that copies existing dictionary into a new one with different language.
+        /// </summary>
+        /// <param name="inputWordSet">Taken set of words</param>
+        /// <param name="newLanguage">Language which dictionary is created for</param>
+        /// <returns></returns>
         private WordSet CreateCopy(WordSet inputWordSet, Language newLanguage)
         {
             var output = new WordSet(newLanguage);

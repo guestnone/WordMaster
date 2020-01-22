@@ -23,16 +23,18 @@ namespace WordMaster
         private int currTaskControl = 0;
         private Test mTest;
         public bool IsFinished = false;
+        private bool IsLearning;
 
         public UserControl[] taskControls;
 
-        public WordTestWindow(Test test)
+        public WordTestWindow(Test test, bool isLearning)
         {
             InitializeComponent();
+            IsLearning = isLearning;
             taskControls = new TaskUserControl[10];
             mTest = test;
             for (int i = 0; i < 10; i++) {
-                taskControls[i] = new TaskUserControl(test.Tasks[i]);
+                taskControls[i] = new TaskUserControl(test.Tasks[i], IsLearning);
             }
             changeRemaining();
             contentControl.Content = taskControls[currTaskControl];
@@ -44,6 +46,9 @@ namespace WordMaster
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
+            if (!IsLearning) {
+                return;
+            }
             if (currTaskControl == taskControls.Length)
                 return;
             if (currTaskControl > 0)

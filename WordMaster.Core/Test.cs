@@ -17,6 +17,7 @@ namespace WordMaster.Core
         public Answer SearchedWord { get; set; }
         public Answer SelectedAnswer { get; set; }
 
+
         public Task(string[] possibleWords, int taskPoints, string rightAnswer, int difficulty, string searched)
         {
             Answers = new Answer[possibleWords.Length];

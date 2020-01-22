@@ -9,6 +9,11 @@ namespace WordMaster.Core
     /// </summary>
     public interface IWordSelectionStrategy
     {
+        /// <summary>
+        /// Method that selects the word by the way its implemented
+        /// </summary>
+        /// <param name="wordSet">Used dictionary of words</param>
+        /// <returns></returns>
         string SelectWord(WordSet wordSet);
     }
     /// <summary>

@@ -15,6 +15,10 @@ namespace WordMaster.Core
             mWordSet = wordSet;
         }
 
+        /// <summary>
+        /// Method responsible for passing a word to TestGenerator
+        /// </summary>
+        /// <returns></returns>
         public string getNextWord()
         {
             if (mWordSet.mWords.Count == mAlreadySelectedWords.Count)
@@ -30,7 +34,10 @@ namespace WordMaster.Core
             mAlreadySelectedWords.Add(id);
             return mWordSet.mWords[id];
         }
-
+        /// <summary>
+        /// Setter that establish new strategy used to choose words
+        /// </summary>
+        /// <param name="strategy">Wanted strategy to choose words</param>
         public void SetStrategy(IWordSelectionStrategy strategy) {
             mStrategy = strategy;
         }
