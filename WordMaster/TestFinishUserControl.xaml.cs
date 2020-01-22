@@ -47,7 +47,7 @@ namespace WordMaster
 
         private void end_Click(object sender, RoutedEventArgs e)
         {
-            UserManager.GetInstance().ModifyAnswerStatistics(badAnswers, goodAnswers);
+            
             Window.GetWindow(this).Close();
         }
     }
