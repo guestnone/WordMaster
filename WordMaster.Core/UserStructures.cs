@@ -2,6 +2,9 @@
 namespace WordMaster.Core
 {
 
+    /// <summary>
+    /// Type of a proficiency of a user.
+    /// </summary>
     public enum ProficiencyType
     {
         Basic,
@@ -11,6 +14,9 @@ namespace WordMaster.Core
         Advanced
     }
 
+    /// <summary>
+    /// Contains the state of a user.
+    /// </summary>
     public class UserState
     {
         public string mFirstName;
