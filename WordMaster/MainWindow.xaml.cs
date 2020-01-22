@@ -101,9 +101,9 @@ namespace WordMaster
                 MessageBox.Show("You don't have any added word collections.\nPlease add some.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            
 
-
+            TestSelectCollectionWindow selectCollectionWindow = new TestSelectCollectionWindow(wordStoreMemento.GetData());
+            selectCollectionWindow.ShowDialog();
         }
     }
 }

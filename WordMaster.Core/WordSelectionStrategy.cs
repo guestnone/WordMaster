@@ -7,18 +7,18 @@ namespace WordMaster.Core
     /// <summary>
     /// Interface for strategy used to determine words in test.
     /// </summary>
-    interface IWordSelectionStrategy
+    public interface IWordSelectionStrategy
     {
         string SelectWord(WordSet wordSet);
     }
     /// <summary>
     /// Strategy used to determine easy word in test.
     /// </summary>
-    class EasyModeWordSelectionStrategy : IWordSelectionStrategy
+    public class EasyModeWordSelectionStrategy : IWordSelectionStrategy
     {
         public string SelectWord(WordSet wordSet)
         {
-            ICollection<string> values = wordSet.mWords.Values;
+            ICollection<string> values = wordSet.mWords.Keys;
             List<string> valList = new List<string>(values);
 
             Random rand = new Random();
@@ -35,11 +35,11 @@ namespace WordMaster.Core
     /// <summary>
     /// Strategy used to determine hard word in test.
     /// </summary>
-    class HardModeWordSelectionStrategy : IWordSelectionStrategy
+    public class HardModeWordSelectionStrategy : IWordSelectionStrategy
     {
         public string SelectWord(WordSet wordSet)
         {
-            ICollection<string> values = wordSet.mWords.Values;
+            ICollection<string> values = wordSet.mWords.Keys;
             List<string> valList = new List<string>(values);
 
             Random rand = new Random();

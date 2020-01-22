@@ -19,5 +19,8 @@
     <Grid>
         <ListBox ItemsSource="{Binding Answers}" SelectedItem="{Binding SelectedAnswer}" Margin="128,78,128,78"/>
         <TextBlock x:Name="taskTextBlock" HorizontalAlignment="Center" Margin="0,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="348"/>
+        <TextBlock x:Name="notifyTextBlock" HorizontalAlignment="Center" Margin="0,403,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="37" Width="244"/>
+        <TextBlock x:Name="pointsTextBlock" HorizontalAlignment="Left" Margin="579,46,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="123"/>
+        <TextBlock x:Name="diffTextBlock" HorizontalAlignment="Left" Margin="75,35,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="124"/>
     </Grid>
 </UserControl>

@@ -4,13 +4,13 @@ using System.Text;
 
 namespace WordMaster.Core
 {
-    class TestGenerator
+    public class TestGenerator
     {
-        public TestGenerator(ITestAdapter model, WordSet wordSet, WordSelector selector)
+        public TestGenerator(ITestAdapter model, WordSet wordSet)
         {
             mTestModel = model;
             mWordSet = wordSet;
-            mSelector = selector;
+            mSelector = new WordSelector(new EasyModeWordSelectionStrategy(), wordSet);
         }
         public void SetTestModel(ITestAdapter model) { mTestModel = model; }
 
@@ -32,6 +32,14 @@ namespace WordMaster.Core
                 int choosenWord = rand.Next(wordCount);
                 string rightAnswer = "";
                 string searchedWord = "";
+                switch (level) {
+                    case 0:
+                        mSelector.SetStrategy(new EasyModeWordSelectionStrategy());
+                        break;
+                    case 1:
+                        mSelector.SetStrategy(new HardModeWordSelectionStrategy());
+                        break;
+                }
                 for (int j = 0; j < wordCount; j++) {
                     words[j] = mSelector.getNextWord();
                     if (j == choosenWord) {

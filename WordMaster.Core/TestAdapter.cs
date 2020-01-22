@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WordMaster.Core
 {
-    interface ITestAdapter
+    public interface ITestAdapter
     {
         void SetWordCount(ref int wordCount, ref int taskId);
         void SetPointsNumber(ref int pointsNumber, ref int taskId);

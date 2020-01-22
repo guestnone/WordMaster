@@ -77,10 +77,16 @@ namespace WordMaster.Core
             var output = new WordSet(newLanguage);
             output.mWords = inputWordSet.mWords.Copy();
             output.mLanguage = newLanguage;
+            List<string> list = new List<string>();
             foreach (var word in output.mWords)
             {
-                output.mWords[word.Key] = "";
+                list.Add(word.Key);
             }
+            foreach (var word in list)
+            {
+                output.mWords[word] = "";
+            }
+            
 
             return output;
         }

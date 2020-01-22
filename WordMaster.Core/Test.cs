@@ -19,13 +19,16 @@ namespace WordMaster.Core
 
         public Task(string[] possibleWords, int taskPoints, string rightAnswer, int difficulty, string searched)
         {
-            Answers = new Answer[10];
+            Answers = new Answer[possibleWords.Length];
             for (int i = 0; i < Answers.Length; i++) {
+                Answers[i] = new Answer();
                 Answers[i].Display = possibleWords[i];
             }
             Points = taskPoints;
             Difficulty = difficulty;
+            RightAnswer = new Answer();
             RightAnswer.Display = rightAnswer;
+            SearchedWord = new Answer();
             SearchedWord.Display = searched;
         }
     }

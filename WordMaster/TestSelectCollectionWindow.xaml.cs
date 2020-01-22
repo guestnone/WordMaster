@@ -29,11 +29,12 @@ namespace WordMaster
             InitializeComponent();
             store = wordStore;
             this.collectionComboBox.SelectedValuePath = "Key";
-            this.collectionComboBox.DisplayMemberPath = "Value";
+            this.collectionComboBox.DisplayMemberPath = "Key";
             this.languageComboBox.SelectedValuePath = "Key";
-            this.languageComboBox.DisplayMemberPath = "Value";
+            this.languageComboBox.DisplayMemberPath = "Key";
 
             collectionComboBox.ItemsSource = store.mWordCollections;
+            
 
         }
 
@@ -45,6 +46,7 @@ namespace WordMaster
         {
             SelectedCollectionName = ((KeyValuePair<string, WordCollection>)collectionComboBox.SelectedItem).Key;
             this.languageComboBox.ItemsSource = ((KeyValuePair<string, WordCollection>)collectionComboBox.SelectedItem).Value.mWordSets;
+
         }
 
         private void languageComboBox_DropDownClosed(object sender, EventArgs e)
@@ -65,6 +67,12 @@ namespace WordMaster
         {
             IsSelected = true;
             DefaultLangAsFromLanguage = (checkBox.IsChecked == true);
+            CustomTestAdapter testAdapter = new CustomTestAdapter();
+
+            TestGenerator testGenerator = new TestGenerator(testAdapter, SelectedSet.Value);
+            Test test = testGenerator.GenerateTest();
+            WordTestWindow wordTestWindow = new WordTestWindow(test);
+            wordTestWindow.ShowDialog();
             this.Close();
         }
     }

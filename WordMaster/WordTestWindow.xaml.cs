@@ -21,18 +21,21 @@ namespace WordMaster
     public partial class WordTestWindow : Window
     {
         private int currTaskControl = 0;
+        private Test mTest;
         public bool IsFinished = false;
 
-        public TaskUserControl[] taskControls;
+        public UserControl[] taskControls;
 
         public WordTestWindow(Test test)
         {
             InitializeComponent();
             taskControls = new TaskUserControl[10];
+            mTest = test;
             for (int i = 0; i < 10; i++) {
                 taskControls[i] = new TaskUserControl(test.Tasks[i]);
             }
-            contentControl = taskControls[currTaskControl];
+            changeRemaining();
+            contentControl.Content = taskControls[currTaskControl];
         }
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
@@ -41,14 +44,28 @@ namespace WordMaster
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
+            if (currTaskControl == taskControls.Length)
+                return;
             if (currTaskControl > 0)
-                contentControl = taskControls[--currTaskControl];
+                contentControl.Content = taskControls[--currTaskControl];
+            changeRemaining();
         }
 
         private void forward_Click(object sender, RoutedEventArgs e)
         {
-            if (currTaskControl < taskControls.Length-1)
-                contentControl = taskControls[++currTaskControl];
+            if (currTaskControl < taskControls.Length - 1) {
+                contentControl.Content = taskControls[++currTaskControl];
+                
+            }
+            if (currTaskControl == taskControls.Length - 1) {
+                contentControl.Content = new TestFinishUserControl(mTest);
+            }
+            changeRemaining();
+
+        }
+
+        private void changeRemaining() {
+            ramainingWordsLabel.Content = (10 - 1 - currTaskControl).ToString() + " Words Remaining";
         }
     }
 }

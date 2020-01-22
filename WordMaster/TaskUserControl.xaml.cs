@@ -24,6 +24,9 @@ namespace WordMaster
             InitializeComponent();
             DataContext = task;
             taskTextBlock.Text = "Original word: " + task.SearchedWord.Display;
+            pointsTextBlock.Text = "Points: " + task.Points.ToString();
+            diffTextBlock.Text = "Points: " + Enum.ToObject(typeof(ProficiencyType), task.Difficulty).ToString();
+            //taskTextBlock.Text = "Original word: " + task.SearchedWord.Display;
         }
     }
 

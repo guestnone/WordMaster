@@ -7,7 +7,7 @@ namespace WordMaster.Core
     /// <summary>
     /// Class that chooses test word based on taken strategy.
     /// </summary>
-    class WordSelector
+    public class WordSelector
     {
         public WordSelector(IWordSelectionStrategy strategy, WordSet wordSet)
         {
@@ -20,13 +20,19 @@ namespace WordMaster.Core
             if (mWordSet.mWords.Count == mAlreadySelectedWords.Count)
                 return null;
             string id = mStrategy.SelectWord(mWordSet);
-            while (mAlreadySelectedWords.Contains(id))
+            int safetyMargin = 0;
+            while (mAlreadySelectedWords.Contains(id) && safetyMargin > 100)
             {
+                safetyMargin++;
                 id = mStrategy.SelectWord(mWordSet);
             }
 
             mAlreadySelectedWords.Add(id);
             return mWordSet.mWords[id];
+        }
+
+        public void SetStrategy(IWordSelectionStrategy strategy) {
+            mStrategy = strategy;
         }
 
         private IWordSelectionStrategy mStrategy;
