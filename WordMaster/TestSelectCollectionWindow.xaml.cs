@@ -56,6 +56,7 @@ namespace WordMaster
         private void languageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelectedSet = ((KeyValuePair<Language, WordSet>)languageComboBox.SelectedItem);
+            IsSelected = true;
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
@@ -65,7 +66,8 @@ namespace WordMaster
 
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
-            IsSelected = true;
+            if (!IsSelected)
+                return;
             IsLearningMode = (checkBox.IsChecked == true);
             ITestAdapter testAdapter = new DescribedTestAdapter();
 
